@@ -31,10 +31,10 @@ public class BMICalculator {
 
     private void readMetricData () {
         System.out.print("Please enter your weight in kilograms: ");
-        setWeight(scan.nextInt());
+        setWeight(scan.nextDouble());
 
         System.out.print("Please enter your height in meters: ");
-        setHeight(scan.nextInt());
+        setHeight(scan.nextDouble());
     }
 
     private void readImperialData () {
@@ -71,7 +71,7 @@ public class BMICalculator {
         return weight;
     }
 
-    private void setWeight (int weight) {
+    private void setWeight (double weight) {
         this.weight = weight;
 
         if (this.weight < 0) {
@@ -84,7 +84,7 @@ public class BMICalculator {
         return height;
     }
 
-    private void setHeight (int height) {
+    private void setHeight (double height) {
         this.height = height;
 
         if (this.height < 0) {
@@ -111,12 +111,11 @@ public class BMICalculator {
     public void calculateBmi () {
         double weight = getWeight();
         double height = getHeight();
-
         if (readMOrI.equals("M")) {
-            bmi =  Math.round((weight / (height * height)) * 10) / 10;
+            bmi =  Math.round((weight / (height * height)) * 10) / 10.0;
         }
         else if (readMOrI.equals("I")) {
-            bmi = Math.round(((703 * weight) / (height * height)) * 10) /10;
+            bmi = Math.round(((703 * weight) / (height * height)) * 10) /10.0;
         }
 
         calculateBmiCategory();
